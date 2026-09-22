@@ -1,0 +1,74 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Fraunces", ui-serif, Georgia, serif;
+  --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --color-paper: #f5f6f2;
+  --color-paper-line: #dfe3dc;
+  --color-ink: #1f2a24;
+  --color-ink-soft: #55645b;
+  --color-moss: #2f6f52;
+  --color-moss-dark: #234f3b;
+  --color-gold: #d9a441;
+  --color-clay: #b4533a;
+}
+
+html,
+body,
+#app {
+  height: 100%;
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom circular checkbox */
+.check-circle {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 22px;
+  height: 22px;
+  min-width: 22px;
+  border-radius: 9999px;
+  border: 1.5px solid var(--color-ink-soft);
+  display: inline-grid;
+  place-content: center;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.check-circle::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 9999px;
+  background-color: var(--color-paper);
+  transform: scale(0);
+  transition: transform 0.15s ease;
+}
+
+.check-circle:checked {
+  background-color: var(--color-moss);
+  border-color: var(--color-moss);
+}
+
+.check-circle:checked::before {
+  transform: scale(1);
+}
+
+.check-circle:focus-visible {
+  outline: 2px solid var(--color-moss);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}
