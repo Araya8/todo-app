@@ -84,42 +84,6 @@ npm run dev                # http://localhost:5173
 - [x] ข้อมูลคงอยู่หลังรีเฟรช (โหลดจาก API ทุกครั้งที่เปิดหน้า)
 - [x] Postman collection พร้อม test assertions
 
-## การอัปโหลดขึ้น GitHub
-
-โปรเจกต์นี้จัดเป็น 2 โฟลเดอร์แยกกันในที่เก็บเดียว คุณสามารถ:
-
-**ตัวเลือก A: แยกเป็น 2 repository (ตรงตามคำขอในโจทย์ที่ระบุ "ลิงก์ของ Repository ทั้งสอง")**
-```bash
-# Backend
-cd backend
-git init
-git add .
-git commit -m "Initial commit: Todo API server"
-git branch -M main
-git remote add origin https://github.com/<your-username>/todo-api-server.git
-git push -u origin main
-
-# Frontend
-cd ../frontend
-git init
-git add .
-git commit -m "Initial commit: Todo List frontend"
-git branch -M main
-git remote add origin https://github.com/<your-username>/todo-list-frontend.git
-git push -u origin main
-```
-อย่าลืมตั้งค่า repository ทั้งสองเป็น **Public** ใน GitHub Settings → General → Danger Zone → Change visibility
-
-**ตัวเลือก B: รวมเป็น monorepo เดียว (repo เดียวมีทั้ง backend/ และ frontend/)**
-```bash
-cd todo-app
-git init
-git add .
-git commit -m "Initial commit: Todo List app (frontend + backend)"
-git branch -M main
-git remote add origin https://github.com/<your-username>/todo-list-app.git
-git push -u origin main
-```
 
 > หมายเหตุ: ไฟล์ `.env` และ `node_modules/` ถูกกำหนดไว้ใน `.gitignore` แล้ว จะไม่ถูกอัปโหลดขึ้น GitHub โดยอัตโนมัติ (ปลอดภัย ไม่หลุดรหัสผ่านฐานข้อมูล)
 
